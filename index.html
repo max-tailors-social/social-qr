@@ -4,139 +4,672 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Max Tailors & Cloth</title>
+    <title>Max Tailors & Cloth | Bespoke Men's Tailoring</title>
+
+    <meta name="description"
+          content="Max Tailors & Cloth — Premium men's tailoring, fine fabrics and timeless style.">
 
     <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
             min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #111111, #292929);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: white;
+            background:
+                radial-gradient(circle at top, #3b2a1d 0%, #17120e 45%, #090806 100%);
+            color: #ead9b7;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .container {
+        /* ==============================
+           MAIN CONTAINER
+        ============================== */
+
+        .page {
             width: 100%;
-            max-width: 420px;
-            background: #ffffff;
-            color: #222222;
-            border-radius: 25px;
-            padding: 35px 25px;
+            max-width: 650px;
+            margin: auto;
+            padding: 25px 18px 35px;
+        }
+
+        /* ==============================
+           GOLD FRAME
+        ============================== */
+
+        .card {
+            position: relative;
+            overflow: hidden;
+
+            border: 1px solid #9b7537;
+            border-radius: 4px;
+
+            background:
+                linear-gradient(
+                    rgba(20, 14, 10, 0.93),
+                    rgba(12, 9, 7, 0.97)
+                );
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.65),
+                inset 0 0 40px rgba(184,142,69,0.08);
+
+            padding: 42px 24px;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 9px;
+
+            border: 1px solid rgba(183,143,72,0.35);
+
+            pointer-events: none;
+        }
+
+        /* ==============================
+           DECORATIVE CORNERS
+        ============================== */
+
+        .corner {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            border-color: #b78a42;
+            border-style: solid;
+            opacity: 0.8;
+        }
+
+        .top-left {
+            top: 18px;
+            left: 18px;
+            border-width: 2px 0 0 2px;
+        }
+
+        .top-right {
+            top: 18px;
+            right: 18px;
+            border-width: 2px 2px 0 0;
+        }
+
+        .bottom-left {
+            bottom: 18px;
+            left: 18px;
+            border-width: 0 0 2px 2px;
+        }
+
+        .bottom-right {
+            bottom: 18px;
+            right: 18px;
+            border-width: 0 2px 2px 0;
+        }
+
+        /* ==============================
+           BRAND
+        ============================== */
+
+        .brand {
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
         }
 
-        .logo {
-            width: 95px;
-            height: 95px;
-            margin: 0 auto 20px;
+        .monogram {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 18px;
+
+            border: 2px solid #b78a42;
             border-radius: 50%;
-            background: #111111;
-            color: white;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 25px;
-            font-weight: bold;
-            letter-spacing: 1px;
+
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 55px;
+            font-weight: 700;
+
+            color: #d8b46a;
+
+            box-shadow:
+                0 0 25px rgba(183,138,66,0.15),
+                inset 0 0 20px rgba(183,138,66,0.08);
         }
 
-        h1 {
-            margin: 0;
-            font-size: 27px;
+        .brand h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(42px, 10vw, 66px);
+            line-height: 0.9;
+            letter-spacing: 5px;
+            color: #f0dfbb;
+            text-transform: uppercase;
         }
 
-        .subtitle {
-            margin: 10px 0 28px;
-            color: #666666;
-            font-size: 15px;
-        }
-
-        .social-button {
+        .ampersand {
             display: block;
-            width: 100%;
-            padding: 16px;
-            margin: 14px 0;
-            border-radius: 13px;
-            color: white;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: bold;
-            transition: transform 0.2s;
+            margin: 12px 0;
+
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            letter-spacing: 7px;
+            color: #b78a42;
         }
 
-        .social-button:hover {
-            transform: scale(1.02);
-        }
-
-        .instagram {
-            background: #E1306C;
-        }
-
-        .youtube {
-            background: #FF0000;
-        }
-
-        .facebook {
-            background: #1877F2;
-        }
-
-        .footer {
-            margin-top: 25px;
-            color: #888888;
+        .tagline {
             font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c4a66b;
         }
+
+        /* ==============================
+           DIVIDER
+        ============================== */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin: 28px 15px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #9c7437
+            );
+        }
+
+        .divider::after {
+            background: linear-gradient(
+                90deg,
+                #9c7437,
+                transparent
+            );
+        }
+
+        .diamond {
+            width: 8px;
+            height: 8px;
+            background: #b78a42;
+            transform: rotate(45deg);
+        }
+
+        /* ==============================
+           INTRO
+        ============================== */
+
+        .intro {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #ead7ad;
+            margin-bottom: 8px;
+        }
+
+        .intro p {
+            max-width: 440px;
+            margin: auto;
+
+            font-size: 13px;
+            line-height: 1.8;
+
+            color: #a99a80;
+        }
+
+        /* ==============================
+           SOCIAL BUTTONS
+        ============================== */
+
+        .socials {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .social {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 62px;
+
+            border: 1px solid rgba(183,138,66,0.5);
+            border-radius: 3px;
+
+            text-decoration: none;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(62,43,27,0.75),
+                    rgba(31,22,16,0.85)
+                );
+
+            color: #ead9b7;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .social:hover {
+            transform: translateY(-3px);
+
+            border-color: #d3a653;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(85,59,35,0.85),
+                    rgba(43,30,20,0.95)
+                );
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .social-icon {
+            position: absolute;
+            left: 20px;
+
+            width: 27px;
+            height: 27px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 17px;
+        }
+
+        .social-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .social-subtitle {
+            position: absolute;
+            right: 20px;
+
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            color: #8f7b5b;
+        }
+
+        /* ==============================
+           CRAFTSMANSHIP
+        ============================== */
+
+        .craftsmanship {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+
+            margin-top: 30px;
+
+            border: 1px solid rgba(183,138,66,0.35);
+            background: rgba(183,138,66,0.25);
+        }
+
+        .craft {
+            padding: 20px 10px;
+            text-align: center;
+
+            background: rgba(19,14,10,0.95);
+        }
+
+        .craft-symbol {
+            font-size: 25px;
+            color: #b78a42;
+            margin-bottom: 8px;
+        }
+
+        .craft h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            color: #dfc99d;
+        }
+
+        .craft p {
+            margin-top: 5px;
+
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: #80745f;
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .footer-line {
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #9b7537,
+                transparent
+            );
+
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            letter-spacing: 2px;
+            color: #c9ae76;
+        }
+
+        footer small {
+            display: block;
+            margin-top: 9px;
+
+            font-size: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: #716550;
+        }
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 500px) {
+
+            .page {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 35px 18px;
+            }
+
+            .brand h1 {
+                letter-spacing: 3px;
+            }
+
+            .tagline {
+                font-size: 9px;
+                letter-spacing: 2.5px;
+            }
+
+            .social-subtitle {
+                display: none;
+            }
+
+            .social-name {
+                font-size: 21px;
+            }
+
+            .craftsmanship {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="page">
 
-        <div class="logo">
-            MAX
+    <main class="card">
+
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <!-- BRAND -->
+
+        <section class="brand">
+
+            <div class="monogram">
+                M
+            </div>
+
+            <h1>
+                MAX
+            </h1>
+
+            <span class="ampersand">
+                TAILORS &amp; CLOTH
+            </span>
+
+            <div class="tagline">
+                Perfect Fit. Perfect Style.
+            </div>
+
+        </section>
+
+
+        <div class="divider">
+            <div class="diamond"></div>
         </div>
 
-        <h1>Max Tailors & Cloth</h1>
 
-        <div class="subtitle">
-            Follow us & stay connected
-        </div>
+        <!-- INTRO -->
 
-        <a
-            class="social-button instagram"
-            href="https://www.instagram.com/max_tailors_cloth/"
-            target="_blank">
-            📸 Instagram
-        </a>
+        <section class="intro">
 
-        <a
-            class="social-button youtube"
-            href="https://youtube.com/@max_tailors_cloth"
-            target="_blank">
-            ▶️ YouTube
-        </a>
+            <h2>
+                The Art of Fine Tailoring
+            </h2>
 
-        <a
-            class="social-button facebook"
-            href="https://www.facebook.com/share/1C38wYTezx/"
-            target="_blank">
-            👍 Facebook
-        </a>
+            <p>
+                Timeless craftsmanship, refined fabrics and
+                precision tailoring for the modern gentleman.
+            </p>
 
-        <div class="footer">
-            Thank you for supporting Max Tailors & Cloth ❤️
-        </div>
+        </section>
 
-    </div>
+
+        <!-- SOCIAL MEDIA -->
+
+        <section class="socials">
+
+            <a
+                class="social"
+                href="https://www.instagram.com/max_tailors_cloth/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="social-icon">
+                    ◎
+                </span>
+
+                <span class="social-name">
+                    Instagram
+                </span>
+
+                <span class="social-subtitle">
+                    Follow Us
+                </span>
+
+            </a>
+
+
+            <a
+                class="social"
+                href="https://youtube.com/@max_tailors_cloth"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="social-icon">
+                    ▶
+                </span>
+
+                <span class="social-name">
+                    YouTube
+                </span>
+
+                <span class="social-subtitle">
+                    Watch Us
+                </span>
+
+            </a>
+
+
+            <a
+                class="social"
+                href="https://www.facebook.com/share/1C38wYTezx/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="social-icon">
+                    f
+                </span>
+
+                <span class="social-name">
+                    Facebook
+                </span>
+
+                <span class="social-subtitle">
+                    Follow Us
+                </span>
+
+            </a>
+
+        </section>
+
+
+        <!-- CRAFTSMANSHIP -->
+
+        <section class="craftsmanship">
+
+            <div class="craft">
+
+                <div class="craft-symbol">
+                    ♛
+                </div>
+
+                <h3>
+                    Premium Quality
+                </h3>
+
+                <p>
+                    Exceptional Standards
+                </p>
+
+            </div>
+
+
+            <div class="craft">
+
+                <div class="craft-symbol">
+                    ♙
+                </div>
+
+                <h3>
+                    Fine Tailoring
+                </h3>
+
+                <p>
+                    Made For You
+                </p>
+
+            </div>
+
+
+            <div class="craft">
+
+                <div class="craft-symbol">
+                    ✦
+                </div>
+
+                <h3>
+                    Finest Fabrics
+                </h3>
+
+                <p>
+                    Carefully Selected
+                </p>
+
+            </div>
+
+
+            <div class="craft">
+
+                <div class="craft-symbol">
+                    ⌁
+                </div>
+
+                <h3>
+                    Timeless Style
+                </h3>
+
+                <p>
+                    Made To Last
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div class="footer-line"></div>
+
+            <p>
+                Thank You For Supporting Us
+            </p>
+
+            <small>
+                Max Tailors &amp; Cloth • Crafted With Tradition
+            </small>
+
+        </footer>
+
+    </main>
+
+</div>
 
 </body>
 </html>
