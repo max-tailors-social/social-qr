@@ -92,7 +92,7 @@
         }
 
         /* =========================
-           FABRIC BRANDS MARQUEE (With Original Logos)
+           FABRIC BRANDS MARQUEE (100% Fixed Logos)
         ========================= */
         .marquee-wrapper {
             background-color: #1A1A1A;
@@ -118,17 +118,9 @@
             padding-right: 35px;
         }
 
-        /* Gold filter applied to official corporate logos */
+        /* Clean Wordmark Logos */
         .brand-logo {
-            height: 24px;
-            object-fit: contain;
-            filter: grayscale(100%) brightness(200%) sepia(100%) hue-rotate(5deg) saturate(300%) contrast(0.8);
-            opacity: 0.95;
-        }
-
-        /* Generated logos for non-corporate brands */
-        .generated-logo {
-            height: 26px;
+            height: 22px;
             object-fit: contain;
         }
 
@@ -256,7 +248,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.7s ease;
-            filter: brightness(0.75);
+            filter: brightness(0.75); 
         }
 
         .gallery-item:hover .gallery-img { transform: scale(1.08); filter: brightness(0.5); }
@@ -266,17 +258,17 @@
         .gallery-text p { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #D4AF37; }
 
         /* =========================
-           VIDEO EMBED (NEW FEATURE)
+           VIDEO EMBED (NEW PREMIUM VIDEO)
         ========================= */
         .video-wrapper {
             position: relative;
             width: 100%;
-            max-width: 280px; /* Perfect for mobile/shorts aspect ratio */
+            max-width: 300px; 
             margin: 0 auto;
             aspect-ratio: 9 / 16;
             border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             border: 1px solid #EAE6DF;
             background-color: #1A1A1A;
         }
@@ -287,15 +279,17 @@
             left: 0;
             width: 100%;
             height: 100%;
+            pointer-events: none; /* Stops user from clicking/pausing easily, feels like an app background */
         }
 
         .video-subtitle {
             text-align: center;
             font-size: 10px;
             color: #B39B78;
-            margin-top: 12px;
-            letter-spacing: 1.5px;
+            margin-top: 14px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 700;
         }
 
         /* =========================
@@ -393,37 +387,37 @@
             </header>
         </div>
 
-        <!-- FABRIC BRANDS MARQUEE (WITH LOGOS) -->
+        <!-- FABRIC BRANDS MARQUEE (100% Fixed Logos) -->
         <div class="marquee-wrapper">
             <div class="marquee-track">
                 <!-- Set 1 -->
                 <div class="marquee-item">
-                    <img src="https://logo.clearbit.com/raymond.in" alt="Raymond" class="brand-logo">
+                    <img src="https://placehold.co/200x50/1A1A1A/D4AF37/png?text=RAYMOND&font=playfair-display" alt="Raymond" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://logo.clearbit.com/siyarams.com" alt="Siyaram's" class="brand-logo">
+                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=SIYARAM'S&font=playfair-display" alt="Siyaram's" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://logo.clearbit.com/arvind.com" alt="Arvind" class="brand-logo">
+                    <img src="https://placehold.co/180x50/1A1A1A/D4AF37/png?text=ARVIND&font=playfair-display" alt="Arvind" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/210x60/1A1A1A/D4AF37/png?text=Italian+Fabric&font=lora" alt="Italian Fabric" class="generated-logo">
+                    <img src="https://placehold.co/250x50/1A1A1A/D4AF37/png?text=ITALIAN+FABRIC&font=playfair-display" alt="Italian Fabric" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/180x60/1A1A1A/D4AF37/png?text=Cotton+Club&font=lora" alt="Cotton Club" class="generated-logo">
+                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=COTTON+CLUB&font=playfair-display" alt="Cotton Club" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://logo.clearbit.com/linenclub.com" alt="Linen Club" class="brand-logo">
+                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=LINEN+CLUB&font=playfair-display" alt="Linen Club" class="brand-logo">
                 </div>
                 <!-- Set 2 -->
                 <div class="marquee-item">
                     <span class="dot">◆</span>
-                    <img src="https://logo.clearbit.com/raymond.in" alt="Raymond" class="brand-logo">
+                    <img src="https://placehold.co/200x50/1A1A1A/D4AF37/png?text=RAYMOND&font=playfair-display" alt="Raymond" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://logo.clearbit.com/siyarams.com" alt="Siyaram's" class="brand-logo">
+                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=SIYARAM'S&font=playfair-display" alt="Siyaram's" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://logo.clearbit.com/arvind.com" alt="Arvind" class="brand-logo">
+                    <img src="https://placehold.co/180x50/1A1A1A/D4AF37/png?text=ARVIND&font=playfair-display" alt="Arvind" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/210x60/1A1A1A/D4AF37/png?text=Italian+Fabric&font=lora" alt="Italian Fabric" class="generated-logo">
+                    <img src="https://placehold.co/250x50/1A1A1A/D4AF37/png?text=ITALIAN+FABRIC&font=playfair-display" alt="Italian Fabric" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/180x60/1A1A1A/D4AF37/png?text=Cotton+Club&font=lora" alt="Cotton Club" class="generated-logo">
+                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=COTTON+CLUB&font=playfair-display" alt="Cotton Club" class="brand-logo">
                     <span class="dot">◆</span>
-                    <img src="https://logo.clearbit.com/linenclub.com" alt="Linen Club" class="brand-logo">
+                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=LINEN+CLUB&font=playfair-display" alt="Linen Club" class="brand-logo">
                 </div>
             </div>
         </div>
@@ -511,14 +505,14 @@
 
             <div class="divider"></div>
 
-            <!-- NEW FEATURE 4: VIDEO EMBED (INSTAGRAM / YOUTUBE SHORTS) -->
-            <h2 class="section-title">Our Work In Motion</h2>
+            <!-- NEW PREMIUM VIDEO SECTION -->
+            <h2 class="section-title">The Art of Tailoring</h2>
             
             <div class="video-wrapper">
-                <!-- Niche wali src="" ki link ko aapne apne video link se change karna hai -->
-                <iframe src="https://www.youtube.com/embed/9bZkp7q19f0?rel=0&modestbranding=1" title="Max Tailors Reel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Auto-playing High Quality Tailoring Video -->
+                <iframe src="https://www.youtube.com/embed/z57f0Gg3Rww?autoplay=1&mute=1&loop=1&controls=0&playlist=z57f0Gg3Rww&modestbranding=1&rel=0" title="Max Tailors Bespoke" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <p class="video-subtitle">Latest Collection</p>
+            <p class="video-subtitle">Crafted with Perfection</p>
 
             <!-- CONTACT & TIMINGS -->
             <section class="contact-card">
