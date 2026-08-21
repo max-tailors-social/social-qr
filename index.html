@@ -10,7 +10,7 @@
         /* =========================
            FONTS & RESET
         ========================= */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
 
         * {
             box-sizing: border-box;
@@ -18,378 +18,387 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* =========================
-           BACKGROUND & BODY (Luxury Dark Theme)
-        ========================= */
         body {
+            background-color: #F9F8F6; /* Luxury Ivory/Cream */
+            color: #1A1A1A;
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             min-height: 100vh;
-            background-color: #0c0f12; /* Deep Charcoal */
-            background-image: 
-                radial-gradient(circle at top right, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
-            color: #f5f5f5;
-            font-family: 'Montserrat', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 40px 15px;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* =========================
-           MAIN CONTAINER (Glassmorphism Card)
+           MAIN CONTAINER
         ========================= */
-        .card {
-            background: rgba(18, 22, 28, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid #232931;
-            border-radius: 16px;
+        .container {
             width: 100%;
-            max-width: 600px;
-            padding: 50px 40px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
+            max-width: 520px;
+            background: #FFFFFF;
+            padding: 50px 35px;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid #EAE6DF;
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Tailor Stitching Effect on Border */
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 12px; left: 12px; right: 12px; bottom: 12px;
-            border: 1px dashed rgba(212, 175, 55, 0.3); /* Golden Stitching */
-            border-radius: 10px;
-            pointer-events: none;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* =========================
-           BRANDING
+           BRANDING / HEADER
         ========================= */
-        .logo-wrap {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 25px;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .monogram {
-            width: 85px;
-            height: 85px;
+        .logo-box {
+            width: 70px;
+            height: 70px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, #d4af37, #9c7848);
-            border-radius: 50%;
+            border: 1px solid #1A1A1A;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 40px;
-            color: #0c0f12;
-            font-weight: 700;
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
-            position: relative;
-        }
-
-        .monogram::before {
-            content: '';
-            position: absolute;
-            top: -5px; left: -5px; right: -5px; bottom: -5px;
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            border-radius: 50%;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-radius: 2px;
         }
 
         .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 6vw, 36px);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
             font-weight: 600;
-            letter-spacing: 3px;
-            color: #ffffff;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
+            color: #1A1A1A;
         }
 
         .tagline {
-            color: #d4af37;
             font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: #666666;
+            font-weight: 400;
         }
 
         /* =========================
            DIVIDER
         ========================= */
         .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 35px 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: "";
             height: 1px;
-            width: 60px;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+            background: #EAE6DF;
+            width: 100%;
+            margin: 30px 0;
+            position: relative;
         }
-
-        .divider-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: #d4af37;
+        
+        .divider::after {
+            content: "✂";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #FFFFFF;
+            padding: 0 15px;
+            color: #B39B78;
+            font-size: 14px;
         }
 
         /* =========================
-           ACTION BUTTONS (Links)
+           PREMIUM BUTTONS
         ========================= */
-        .links {
+        .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            position: relative;
-            z-index: 2;
-            margin-bottom: 45px;
+            gap: 14px;
+            margin-bottom: 40px;
         }
 
-        .link-btn {
+        .btn {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            padding: 18px 24px;
             text-decoration: none;
-            padding: 18px 25px;
-            border-radius: 8px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
 
-        .link-btn svg {
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            left: 25px;
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        /* Location / Main Button */
+        .btn-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.4s ease;
+        }
+
+        .arrow {
+            font-size: 16px;
+            transition: transform 0.4s ease;
+        }
+
+        /* Location Button (Primary) */
         .btn-primary {
-            background: linear-gradient(135deg, #d4af37, #9c7848);
-            color: #0c0f12;
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+            background-color: #1A1A1A;
+            color: #D4AF37; /* Muted Gold */
+            border: 1px solid #1A1A1A;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.4);
-            background: linear-gradient(135deg, #e5c35b, #b38a54);
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            border-color: #1A1A1A;
         }
 
-        .btn-primary svg {
-            fill: #0c0f12;
-        }
-
-        /* Social Buttons */
+        /* Social Buttons (Secondary) */
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #e0e0e0;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            border: 1px solid #EAE6DF;
         }
 
         .btn-secondary:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-            color: #d4af37;
-            transform: translateY(-3px);
+            border-color: #1A1A1A;
+            background-color: #FAFAFA;
         }
 
-        .btn-secondary svg {
-            fill: currentColor;
+        .btn:hover .arrow {
+            transform: translateX(5px);
+        }
+        
+        .btn:hover .btn-icon svg {
+            transform: scale(1.1);
         }
 
         /* =========================
-           FABRIC & TAILORING SERVICES
+           PHOTO GALLERY (Services)
         ========================= */
-        .services-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: #ffffff;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1A1A1A;
+            font-style: italic;
         }
 
-        .services {
+        .gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+        }
+
+        .gallery-item {
             position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+            group;
+        }
+
+        /* Using high-quality placeholder images for tailoring */
+        .gallery-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+            filter: brightness(0.85);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.08);
+            filter: brightness(0.6);
+        }
+
+        .gallery-text {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            color: #FFFFFF;
             z-index: 2;
-            margin-bottom: 35px;
         }
 
-        .service-item {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 22px 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+        .gallery-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
         }
 
-        .service-item:hover {
-            border-color: rgba(212, 175, 55, 0.5);
-            background: rgba(212, 175, 55, 0.05);
-            transform: translateY(-3px);
-        }
-
-        .service-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            color: #d4af37;
-            margin-bottom: 8px;
-        }
-
-        .service-item p {
-            font-size: 11px;
-            color: #a0a0a0;
-            line-height: 1.5;
-            letter-spacing: 0.5px;
+        .gallery-text p {
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #D4AF37;
         }
 
         /* =========================
            FOOTER
         ========================= */
         .footer {
-            position: relative;
-            z-index: 2;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #EAE6DF;
         }
 
         .footer p {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: #888;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 16px;
-            margin-bottom: 10px;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
         }
 
         .footer small {
-            display: block;
             font-size: 9px;
-            font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #555;
+            color: #999;
         }
 
         /* =========================
            MOBILE RESPONSIVENESS
         ========================= */
-        @media (max-width: 500px) {
-            .card {
+        @media (max-width: 480px) {
+            .container {
                 padding: 40px 20px;
+                border: none;
+                box-shadow: none;
+                background: transparent;
             }
-            .link-btn {
-                padding: 16px 20px;
-                font-size: 12px;
-            }
-            .link-btn svg {
-                left: 20px;
-            }
-            .services {
-                grid-template-columns: 1fr;
-            }
+            .brand-name { font-size: 30px; }
+            .btn { padding: 16px 20px; }
+            .gallery { grid-template-columns: 1fr; }
+            .gallery-img { height: 200px; }
         }
     </style>
 </head>
 <body>
 
-    <main class="card">
+    <main class="container">
 
-        <!-- BRANDING -->
-        <header class="logo-wrap">
-            <div class="monogram">M</div>
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo-box">M</div>
             <h1 class="brand-name">Max Tailors</h1>
-            <p class="tagline">Bespoke Tailoring & Fine Fabrics</p>
+            <p class="tagline">The House of Fine Cloth</p>
         </header>
 
-        <!-- DIVIDER (Scissors Icon) -->
-        <div class="divider">
-            <div class="divider-icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M10.15,10.63L11.75,9C11.53,8.74 11.2,8.5 10.74,8.5C9.82,8.5 9.07,9.25 9.07,10.16C9.07,11.08 9.82,11.83 10.74,11.83C11.08,11.83 11.39,11.73 11.66,11.55L10.15,10.63M5.19,10.87C4.16,10.87 3.32,10.04 3.32,9C3.32,7.97 4.16,7.14 5.19,7.14C6.22,7.14 7.05,7.97 7.05,9C7.05,10.04 6.22,10.87 5.19,10.87M5.19,5.25C3.12,5.25 1.44,6.93 1.44,9C1.44,11.07 3.12,12.75 5.19,12.75C6.35,12.75 7.39,12.22 8.07,11.38L10.96,13.25L7.96,19.25H9.95L12.03,15.09L14.1,19.25H16.09L13.09,13.25L18.42,7.92L19.5,9H22.5L21.46,6.92L22.5,4.84H19.5L18.42,5.92L13.09,11.25L10.21,9.38C10.6,8.69 10.8,7.92 10.74,7.14C10.59,5.4 9.17,4 7.42,3.87C6.73,3.82 6.04,4.03 5.5,4.41C5.39,4.67 5.23,5 5.19,5.25Z" />
-                </svg>
-            </div>
-        </div>
-
-        <!-- LINKS / BUTTONS -->
-        <section class="links">
+        <!-- PREMIUM BUTTONS / LINKS -->
+        <section class="btn-group">
             
-            <!-- NEW: SHOP LOCATION -->
-            <a href="https://maps.app.goo.gl/NHaWptC6w9CbN2xq9" target="_blank" rel="noopener noreferrer" class="link-btn btn-primary">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/>
-                </svg>
-                Visit Our Shop
+            <!-- SHOP LOCATION (Primary Action) -->
+            <a href="https://maps.app.goo.gl/NHaWptC6w9CbN2xq9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/>
+                    </svg>
+                    <span>Visit Our Boutique</span>
+                </div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- INSTAGRAM -->
-            <a href="https://www.instagram.com/max_tailors_cloth/" target="_blank" rel="noopener noreferrer" class="link-btn btn-secondary">
-                <svg viewBox="0 0 24 24">
-                    <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
-                </svg>
-                Instagram
+            <a href="https://www.instagram.com/max_tailors_cloth/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                    </svg>
+                    <span>Instagram</span>
+                </div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- YOUTUBE -->
-            <a href="https://youtube.com/@max_tailors_cloth" target="_blank" rel="noopener noreferrer" class="link-btn btn-secondary">
-                <svg viewBox="0 0 24 24">
-                    <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.5 21.94,11.87C21.94,13.2 21.9,13.9 21.84,14.67C21.78,15.5 21.69,16.1 21.56,16.63C21.31,17.73 20.5,18.54 19.43,18.78C18.86,18.9 18.23,19 17.43,19.06C16.63,19.12 15.63,19.16 14.5,19.16C13.37,19.16 12.38,19.16 11.5,19.16C10.63,19.16 9.63,19.12 8.83,19.06C8.03,19 7.4,18.9 6.83,18.78C5.77,18.54 4.96,17.73 4.7,16.63C4.57,16.1 4.47,15.5 4.41,14.67C4.34,13.9 4.31,13.2 4.31,11.87C4.31,10.5 4.34,9.87 4.41,9.07C4.47,8.27 4.57,7.64 4.7,7.17C4.96,6.07 5.77,5.26 6.83,5.03C7.4,4.9 8.03,4.8 8.83,4.74C9.63,4.68 10.63,4.64 11.5,4.64C12.38,4.64 13.37,4.64 14.5,4.64C15.63,4.64 16.63,4.68 17.43,4.74C18.23,4.8 18.86,4.9 19.43,5.03C20.5,5.26 21.31,6.07 21.56,7.17Z"/>
-                </svg>
-                YouTube
+            <a href="https://youtube.com/@max_tailors_cloth" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.5 21.94,11.87C21.94,13.2 21.9,13.9 21.84,14.67C21.78,15.5 21.69,16.1 21.56,16.63C21.31,17.73 20.5,18.54 19.43,18.78C18.86,18.9 18.23,19 17.43,19.06C16.63,19.12 15.63,19.16 14.5,19.16C13.37,19.16 12.38,19.16 11.5,19.16C10.63,19.16 9.63,19.12 8.83,19.06C8.03,19 7.4,18.9 6.83,18.78C5.77,18.54 4.96,17.73 4.7,16.63C4.57,16.1 4.47,15.5 4.41,14.67C4.34,13.9 4.31,13.2 4.31,11.87C4.31,10.5 4.34,9.87 4.41,9.07C4.47,8.27 4.57,7.64 4.7,7.17C4.96,6.07 5.77,5.26 6.83,5.03C7.4,4.9 8.03,4.8 8.83,4.74C9.63,4.68 10.63,4.64 11.5,4.64C12.38,4.64 13.37,4.64 14.5,4.64C15.63,4.64 16.63,4.68 17.43,4.74C18.23,4.8 18.86,4.9 19.43,5.03C20.5,5.26 21.31,6.07 21.56,7.17Z"/>
+                    </svg>
+                    <span>YouTube</span>
+                </div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- FACEBOOK -->
-            <a href="https://www.facebook.com/share/1C38wYTezx/" target="_blank" rel="noopener noreferrer" class="link-btn btn-secondary">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
-                </svg>
-                Facebook
+            <a href="https://www.facebook.com/share/1C38wYTezx/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                    </svg>
+                    <span>Facebook</span>
+                </div>
+                <span class="arrow">→</span>
             </a>
 
         </section>
 
-        <!-- SERVICES (Tailor & Fabric focus) -->
-        <h2 class="services-title">Our Expertise</h2>
-        <section class="services">
+        <div class="divider"></div>
+
+        <!-- PHOTO GALLERY (Shop Services) -->
+        <h2 class="section-title">Our Craftsmanship</h2>
+        
+        <section class="gallery">
             
-            <div class="service-item">
-                <h3>Bespoke Tailoring</h3>
-                <p>Suits perfectly crafted to match your exact measurements.</p>
+            <!-- Service 1 -->
+            <div class="gallery-item">
+                <!-- Mene yaha Unsplash ki premium images use ki hain, aap in links ko apni shop ki photos ke links se replace kar sakte hain -->
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600" alt="Bespoke Suits" class="gallery-img">
+                <div class="gallery-text">
+                    <h3>Bespoke Suits</h3>
+                    <p>Perfectly Measured</p>
+                </div>
             </div>
 
-            <div class="service-item">
-                <h3>Premium Fabrics</h3>
-                <p>Explore a luxurious collection of imported and local cloths.</p>
+            <!-- Service 2 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=600" alt="Premium Fabrics" class="gallery-img">
+                <div class="gallery-text">
+                    <h3>Finest Fabrics</h3>
+                    <p>Global Collection</p>
+                </div>
             </div>
 
-            <div class="service-item">
-                <h3>Perfect Alterations</h3>
-                <p>Masterful adjustments for a flawless and sharp look.</p>
+            <!-- Service 3 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?auto=format&fit=crop&q=80&w=600" alt="Master Tailoring" class="gallery-img">
+                <div class="gallery-text">
+                    <h3>Master Tailoring</h3>
+                    <p>Hand-Stitched Detail</p>
+                </div>
             </div>
 
-            <div class="service-item">
-                <h3>Timeless Style</h3>
-                <p>Classic designs tailored to make you stand out gracefully.</p>
+            <!-- Service 4 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1577900232427-18219b9166a0?auto=format&fit=crop&q=80&w=600" alt="Precise Alterations" class="gallery-img">
+                <div class="gallery-text">
+                    <h3>Expert Alterations</h3>
+                    <p>The Flawless Fit</p>
+                </div>
             </div>
 
         </section>
@@ -397,7 +406,7 @@
         <!-- FOOTER -->
         <footer class="footer">
             <p>Elegance in Every Thread</p>
-            <small>© Max Tailors & Cloth • Crafted With Tradition</small>
+            <small>© Max Tailors & Cloth • Ahmedabad</small>
         </footer>
 
     </main>
