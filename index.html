@@ -37,16 +37,16 @@
             width: 100%;
             max-width: 520px;
             background: #FFFFFF;
-            padding: 50px 35px;
+            padding: 50px 0; /* Padding adjusted for full-width marquee */
             border-radius: 4px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
             border: 1px solid #EAE6DF;
-            animation: fadeIn 1s ease-out;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        .content-wrap {
+            padding: 0 35px; /* Inner padding */
         }
 
         /* =========================
@@ -54,7 +54,7 @@
         ========================= */
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .logo-box {
@@ -91,26 +91,42 @@
         }
 
         /* =========================
-           DIVIDER
+           FABRIC BRANDS MARQUEE
         ========================= */
-        .divider {
-            height: 1px;
-            background: #EAE6DF;
+        .marquee-wrapper {
+            background-color: #1A1A1A;
+            color: #D4AF37; /* Muted Gold */
+            padding: 12px 0;
+            margin-bottom: 35px;
             width: 100%;
-            margin: 30px 0;
-            position: relative;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
         }
-        
-        .divider::after {
-            content: "✂";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #FFFFFF;
-            padding: 0 15px;
-            color: #B39B78;
-            font-size: 14px;
+
+        .marquee-track {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .marquee-item span.dot {
+            margin: 0 20px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* =========================
@@ -135,8 +151,7 @@
             text-transform: uppercase;
             border-radius: 2px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid transparent;
         }
 
         .btn-icon {
@@ -152,46 +167,55 @@
             transition: transform 0.4s ease;
         }
 
-        .arrow {
-            font-size: 16px;
-            transition: transform 0.4s ease;
-        }
+        .arrow { font-size: 16px; transition: transform 0.4s ease; }
 
-        /* Location Button (Primary) */
         .btn-primary {
             background-color: #1A1A1A;
-            color: #D4AF37; /* Muted Gold */
-            border: 1px solid #1A1A1A;
-        }
-
-        .btn-primary:hover {
-            background-color: #FFFFFF;
-            color: #1A1A1A;
+            color: #D4AF37;
             border-color: #1A1A1A;
         }
 
-        /* Social Buttons (Secondary) */
-        .btn-secondary {
-            background-color: #FFFFFF;
-            color: #1A1A1A;
-            border: 1px solid #EAE6DF;
+        .btn-primary:hover { background-color: #FFFFFF; color: #1A1A1A; }
+
+        .btn-secondary { background-color: #FFFFFF; color: #1A1A1A; border-color: #EAE6DF; }
+        .btn-secondary:hover { border-color: #1A1A1A; background-color: #FAFAFA; }
+
+        /* WhatsApp Main Button */
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #FFFFFF;
+        }
+        .btn-whatsapp:hover {
+            background-color: #1EBE5A;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
-        .btn-secondary:hover {
-            border-color: #1A1A1A;
-            background-color: #FAFAFA;
-        }
+        .btn:hover .arrow { transform: translateX(5px); }
+        .btn:hover .btn-icon svg { transform: scale(1.1); }
 
-        .btn:hover .arrow {
-            transform: translateX(5px);
+        /* =========================
+           DIVIDER
+        ========================= */
+        .divider {
+            height: 1px;
+            background: #EAE6DF;
+            width: 100%;
+            margin: 30px 0;
+            position: relative;
         }
-        
-        .btn:hover .btn-icon svg {
-            transform: scale(1.1);
+        .divider::after {
+            content: "✂";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #FFFFFF;
+            padding: 0 15px;
+            color: #B39B78;
+            font-size: 14px;
         }
 
         /* =========================
-           PHOTO GALLERY (Services)
+           PHOTO GALLERY
         ========================= */
         .section-title {
             font-family: 'Cormorant Garamond', serif;
@@ -213,10 +237,8 @@
             overflow: hidden;
             border-radius: 2px;
             cursor: pointer;
-            group;
         }
 
-        /* Using high-quality placeholder images for tailoring */
         .gallery-img {
             width: 100%;
             height: 180px;
@@ -226,74 +248,91 @@
             filter: brightness(0.85);
         }
 
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.08);
-            filter: brightness(0.6);
-        }
+        .gallery-item:hover .gallery-img { transform: scale(1.08); filter: brightness(0.6); }
 
-        .gallery-text {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            right: 15px;
-            color: #FFFFFF;
-            z-index: 2;
-        }
-
-        .gallery-text h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-        }
-
-        .gallery-text p {
-            font-size: 9px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #D4AF37;
-        }
+        .gallery-text { position: absolute; bottom: 15px; left: 15px; right: 15px; color: #FFFFFF; z-index: 2; }
+        .gallery-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; letter-spacing: 1px; margin-bottom: 3px; }
+        .gallery-text p { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #D4AF37; }
 
         /* =========================
-           FOOTER
+           CONTACT & TIMINGS
         ========================= */
-        .footer {
+        .contact-card {
+            background-color: #FDFCFB;
+            border: 1px solid #EAE6DF;
+            padding: 30px 20px;
             text-align: center;
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #EAE6DF;
+            border-radius: 2px;
         }
 
-        .footer p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            font-style: italic;
-            color: #666;
-            margin-bottom: 5px;
+        .timings {
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
-        .footer small {
-            font-size: 9px;
+        .timings strong { color: #1A1A1A; }
+
+        .btn-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #1A1A1A;
+            color: #FFFFFF;
+            padding: 16px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #999;
+            border-radius: 2px;
+            transition: background 0.3s;
         }
+
+        .btn-call:hover { background: #B39B78; }
+        
+        .btn-call svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* =========================
+           FLOATING WHATSAPP BUTTON
+        ========================= */
+        .floating-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-wa:hover { transform: translateY(-5px); }
+        .floating-wa svg { width: 22px; height: 22px; fill: currentColor; }
 
         /* =========================
            MOBILE RESPONSIVENESS
         ========================= */
         @media (max-width: 480px) {
-            .container {
-                padding: 40px 20px;
-                border: none;
-                box-shadow: none;
-                background: transparent;
-            }
+            .container { padding: 40px 0; border: none; box-shadow: none; background: transparent; }
+            .content-wrap { padding: 0 20px; }
             .brand-name { font-size: 30px; }
             .btn { padding: 16px 20px; }
             .gallery { grid-template-columns: 1fr; }
             .gallery-img { height: 200px; }
+            .floating-wa span { display: none; }
+            .floating-wa { padding: 15px; right: 15px; bottom: 15px; border-radius: 50%; }
         }
     </style>
 </head>
@@ -302,114 +341,133 @@
     <main class="container">
 
         <!-- HEADER -->
-        <header class="header">
-            <div class="logo-box">M</div>
-            <h1 class="brand-name">Max Tailors</h1>
-            <p class="tagline">The House of Fine Cloth</p>
-        </header>
+        <div class="content-wrap">
+            <header class="header">
+                <div class="logo-box">M</div>
+                <h1 class="brand-name">Max Tailors</h1>
+                <p class="tagline">The House of Fine Cloth</p>
+            </header>
+        </div>
 
-        <!-- PREMIUM BUTTONS / LINKS -->
-        <section class="btn-group">
-            
-            <!-- SHOP LOCATION (Primary Action) -->
-            <a href="https://maps.app.goo.gl/NHaWptC6w9CbN2xq9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                <div class="btn-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/>
-                    </svg>
-                    <span>Visit Our Boutique</span>
+        <!-- FABRIC BRANDS MARQUEE (Updated) -->
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <div class="marquee-item">
+                    Raymond <span class="dot">◆</span> 
+                    Siyaram's <span class="dot">◆</span> 
+                    Arvind <span class="dot">◆</span> 
+                    Italian Fabric <span class="dot">◆</span> 
+                    Cotton Club <span class="dot">◆</span> 
+                    Linen Club <span class="dot">◆</span>
                 </div>
-                <span class="arrow">→</span>
-            </a>
-
-            <!-- INSTAGRAM -->
-            <a href="https://www.instagram.com/max_tailors_cloth/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <div class="btn-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
-                    </svg>
-                    <span>Instagram</span>
-                </div>
-                <span class="arrow">→</span>
-            </a>
-
-            <!-- YOUTUBE -->
-            <a href="https://youtube.com/@max_tailors_cloth" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <div class="btn-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.5 21.94,11.87C21.94,13.2 21.9,13.9 21.84,14.67C21.78,15.5 21.69,16.1 21.56,16.63C21.31,17.73 20.5,18.54 19.43,18.78C18.86,18.9 18.23,19 17.43,19.06C16.63,19.12 15.63,19.16 14.5,19.16C13.37,19.16 12.38,19.16 11.5,19.16C10.63,19.16 9.63,19.12 8.83,19.06C8.03,19 7.4,18.9 6.83,18.78C5.77,18.54 4.96,17.73 4.7,16.63C4.57,16.1 4.47,15.5 4.41,14.67C4.34,13.9 4.31,13.2 4.31,11.87C4.31,10.5 4.34,9.87 4.41,9.07C4.47,8.27 4.57,7.64 4.7,7.17C4.96,6.07 5.77,5.26 6.83,5.03C7.4,4.9 8.03,4.8 8.83,4.74C9.63,4.68 10.63,4.64 11.5,4.64C12.38,4.64 13.37,4.64 14.5,4.64C15.63,4.64 16.63,4.68 17.43,4.74C18.23,4.8 18.86,4.9 19.43,5.03C20.5,5.26 21.31,6.07 21.56,7.17Z"/>
-                    </svg>
-                    <span>YouTube</span>
-                </div>
-                <span class="arrow">→</span>
-            </a>
-
-            <!-- FACEBOOK -->
-            <a href="https://www.facebook.com/share/1C38wYTezx/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <div class="btn-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
-                    </svg>
-                    <span>Facebook</span>
-                </div>
-                <span class="arrow">→</span>
-            </a>
-
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- PHOTO GALLERY (Shop Services) -->
-        <h2 class="section-title">Our Craftsmanship</h2>
-        
-        <section class="gallery">
-            
-            <!-- Service 1 -->
-            <div class="gallery-item">
-                <!-- Mene yaha Unsplash ki premium images use ki hain, aap in links ko apni shop ki photos ke links se replace kar sakte hain -->
-                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600" alt="Bespoke Suits" class="gallery-img">
-                <div class="gallery-text">
-                    <h3>Bespoke Suits</h3>
-                    <p>Perfectly Measured</p>
+                <!-- Set 2 (Duplicate for endless loop) -->
+                <div class="marquee-item">
+                    Raymond <span class="dot">◆</span> 
+                    Siyaram's <span class="dot">◆</span> 
+                    Arvind <span class="dot">◆</span> 
+                    Italian Fabric <span class="dot">◆</span> 
+                    Cotton Club <span class="dot">◆</span> 
+                    Linen Club <span class="dot">◆</span>
                 </div>
             </div>
+        </div>
 
-            <!-- Service 2 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=600" alt="Premium Fabrics" class="gallery-img">
-                <div class="gallery-text">
-                    <h3>Finest Fabrics</h3>
-                    <p>Global Collection</p>
+        <div class="content-wrap">
+            <!-- PREMIUM BUTTONS / LINKS -->
+            <section class="btn-group">
+                
+                <!-- SHOP LOCATION -->
+                <a href="https://maps.app.goo.gl/NHaWptC6w9CbN2xq9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <div class="btn-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/></svg>
+                        <span>Visit Our Boutique</span>
+                    </div>
+                    <span class="arrow">→</span>
+                </a>
+
+                <!-- WHATSAPP BOOKING (Updated Number) -->
+                <a href="https://wa.me/919904923070?text=Hello%20Max%20Tailors,%20I%20would%20like%20to%20know%20more%20about%20your%20tailoring%20services." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                    <div class="btn-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.7 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"/></svg>
+                        <span>Chat with Master Tailor</span>
+                    </div>
+                    <span class="arrow">→</span>
+                </a>
+
+                <!-- INSTAGRAM -->
+                <a href="https://www.instagram.com/max_tailors_cloth/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <div class="btn-icon">
+                        <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
+                        <span>Instagram</span>
+                    </div>
+                    <span class="arrow">→</span>
+                </a>
+
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- PHOTO GALLERY -->
+            <h2 class="section-title">Our Craftsmanship</h2>
+            <section class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600" alt="Bespoke Suits" class="gallery-img">
+                    <div class="gallery-text">
+                        <h3>Bespoke Suits</h3>
+                        <p>Perfectly Measured</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?auto=format&fit=crop&q=80&w=600" alt="Master Tailoring" class="gallery-img">
-                <div class="gallery-text">
-                    <h3>Master Tailoring</h3>
-                    <p>Hand-Stitched Detail</p>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=600" alt="Premium Fabrics" class="gallery-img">
+                    <div class="gallery-text">
+                        <h3>Finest Fabrics</h3>
+                        <p>Global Collection</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1577900232427-18219b9166a0?auto=format&fit=crop&q=80&w=600" alt="Precise Alterations" class="gallery-img">
-                <div class="gallery-text">
-                    <h3>Expert Alterations</h3>
-                    <p>The Flawless Fit</p>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?auto=format&fit=crop&q=80&w=600" alt="Master Tailoring" class="gallery-img">
+                    <div class="gallery-text">
+                        <h3>Master Tailoring</h3>
+                        <p>Hand-Stitched Detail</p>
+                    </div>
                 </div>
-            </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1577900232427-18219b9166a0?auto=format&fit=crop&q=80&w=600" alt="Precise Alterations" class="gallery-img">
+                    <div class="gallery-text">
+                        <h3>Expert Alterations</h3>
+                        <p>The Flawless Fit</p>
+                    </div>
+                </div>
+            </section>
 
-        </section>
+            <!-- CONTACT & TIMINGS (Updated Time and Number) -->
+            <section class="contact-card">
+                <h2 class="section-title" style="margin-bottom: 15px; font-size: 24px;">Visit Our Atelier</h2>
+                <div class="timings">
+                    <p><strong>Mon - Sat:</strong> 8:00 AM - 9:30 PM</p>
+                    <p><strong>Sunday:</strong> Closed (Call to Confirm)</p>
+                </div>
+                
+                <a href="tel:+919904923070" class="btn-call">
+                    <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.93 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+                    Tap to Call Now
+                </a>
+            </section>
 
-        <!-- FOOTER -->
-        <footer class="footer">
-            <p>Elegance in Every Thread</p>
-            <small>© Max Tailors & Cloth • Ahmedabad</small>
-        </footer>
-
+            <!-- FOOTER -->
+            <footer class="footer">
+                <p>Elegance in Every Thread</p>
+                <small>© Max Tailors & Cloth • Ahmedabad</small>
+            </footer>
+        </div>
     </main>
+
+    <!-- FLOATING WHATSAPP BUTTON (Updated Number) -->
+    <a href="https://wa.me/919904923070?text=Hello%20Max%20Tailors,%20I%20would%20like%20to%20book%20a%20fitting." class="floating-wa" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.7 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"/></svg>
+        <span>Book a Fitting</span>
+    </a>
 
 </body>
 </html>
