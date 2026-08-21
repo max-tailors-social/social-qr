@@ -10,8 +10,7 @@
           content="Max Tailors & Cloth — Premium men's tailoring, fine fabrics and timeless style.">
 
     <style>
-
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
         * {
             box-sizing: border-box;
@@ -26,96 +25,76 @@
         body {
             min-height: 100vh;
             background:
-                radial-gradient(circle at top, #3b2a1d 0%, #17120e 45%, #090806 100%);
-            color: #ead9b7;
-            font-family: 'Montserrat', sans-serif;
+                radial-gradient(
+                    circle at 15% 5%,
+                    rgba(156, 120, 72, 0.12),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f5f1e8 0%,
+                    #ebe5d8 100%
+                );
+
+            color: #172b3a;
+            font-family: 'DM Sans', sans-serif;
         }
 
-        /* ==============================
+        /* =========================
            MAIN CONTAINER
-        ============================== */
+        ========================= */
 
         .page {
             width: 100%;
-            max-width: 650px;
+            max-width: 680px;
             margin: auto;
-            padding: 25px 18px 35px;
+            padding: 28px 16px 40px;
         }
 
-        /* ==============================
-           GOLD FRAME
-        ============================== */
+        /* =========================
+           MAIN CARD
+        ========================= */
 
         .card {
             position: relative;
             overflow: hidden;
 
-            border: 1px solid #9b7537;
-            border-radius: 4px;
+            background: rgba(255, 253, 248, 0.97);
 
-            background:
-                linear-gradient(
-                    rgba(20, 14, 10, 0.93),
-                    rgba(12, 9, 7, 0.97)
-                );
+            border: 1px solid rgba(23, 43, 58, 0.10);
+            border-radius: 24px;
 
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.65),
-                inset 0 0 40px rgba(184,142,69,0.08);
+                0 22px 65px rgba(27, 35, 42, 0.15);
 
-            padding: 42px 24px;
+            padding: 44px 28px 34px;
         }
+
+        /* Premium top line */
 
         .card::before {
             content: "";
+
             position: absolute;
-            inset: 9px;
+            top: 0;
+            left: 0;
+            right: 0;
 
-            border: 1px solid rgba(183,143,72,0.35);
+            height: 5px;
 
-            pointer-events: none;
+            background:
+                linear-gradient(
+                    90deg,
+                    #172b3a,
+                    #9c7848,
+                    #7d2932,
+                    #172b3a
+                );
         }
 
-        /* ==============================
-           DECORATIVE CORNERS
-        ============================== */
-
-        .corner {
-            position: absolute;
-            width: 55px;
-            height: 55px;
-            border-color: #b78a42;
-            border-style: solid;
-            opacity: 0.8;
-        }
-
-        .top-left {
-            top: 18px;
-            left: 18px;
-            border-width: 2px 0 0 2px;
-        }
-
-        .top-right {
-            top: 18px;
-            right: 18px;
-            border-width: 2px 2px 0 0;
-        }
-
-        .bottom-left {
-            bottom: 18px;
-            left: 18px;
-            border-width: 0 0 2px 2px;
-        }
-
-        .bottom-right {
-            bottom: 18px;
-            right: 18px;
-            border-width: 0 2px 2px 0;
-        }
-
-        /* ==============================
+        /* =========================
            BRAND
-        ============================== */
+        ========================= */
 
         .brand {
             text-align: center;
@@ -124,131 +103,165 @@
         }
 
         .monogram {
-            width: 90px;
-            height: 90px;
+            width: 76px;
+            height: 76px;
 
             margin: 0 auto 18px;
 
-            border: 2px solid #b78a42;
+            border: 1px solid #9c7848;
             border-radius: 50%;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 55px;
+            font-family: 'Playfair Display', serif;
+            font-size: 43px;
             font-weight: 700;
 
-            color: #d8b46a;
+            color: #172b3a;
+
+            background: #f4ecdc;
 
             box-shadow:
-                0 0 25px rgba(183,138,66,0.15),
-                inset 0 0 20px rgba(183,138,66,0.08);
+                0 8px 24px rgba(30, 43, 54, 0.10);
         }
 
         .brand h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(42px, 10vw, 66px);
-            line-height: 0.9;
-            letter-spacing: 5px;
-            color: #f0dfbb;
+            font-family: 'Playfair Display', serif;
+
+            font-size: clamp(46px, 11vw, 72px);
+
+            line-height: 0.92;
+
+            letter-spacing: 4px;
+
+            color: #172b3a;
+
             text-transform: uppercase;
         }
 
         .ampersand {
             display: block;
-            margin: 12px 0;
 
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 25px;
-            letter-spacing: 7px;
-            color: #b78a42;
+            margin: 10px 0 12px;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 19px;
+
+            letter-spacing: 5px;
+
+            color: #8b6840;
         }
 
         .tagline {
-            font-size: 12px;
-            letter-spacing: 4px;
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
             text-transform: uppercase;
-            color: #c4a66b;
+
+            color: #7d2932;
         }
 
-        /* ==============================
+        /* =========================
            DIVIDER
-        ============================== */
+        ========================= */
 
         .divider {
             display: flex;
+
             align-items: center;
+
             gap: 12px;
 
-            margin: 28px 15px;
+            margin: 30px 10px 27px;
         }
 
         .divider::before,
         .divider::after {
             content: "";
+
             height: 1px;
+
             flex: 1;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                #9c7437
-            );
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #c7b99f
+                );
         }
 
         .divider::after {
-            background: linear-gradient(
-                90deg,
-                #9c7437,
-                transparent
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    #c7b99f,
+                    transparent
+                );
         }
 
         .diamond {
-            width: 8px;
-            height: 8px;
-            background: #b78a42;
+            width: 7px;
+            height: 7px;
+
+            background: #9c7848;
+
             transform: rotate(45deg);
         }
 
-        /* ==============================
+        /* =========================
            INTRO
-        ============================== */
+        ========================= */
 
         .intro {
             text-align: center;
-            margin-bottom: 25px;
+
+            margin-bottom: 27px;
         }
 
         .intro h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
+            font-family: 'Playfair Display', serif;
+
+            font-size: 29px;
+
             font-weight: 600;
-            color: #ead7ad;
-            margin-bottom: 8px;
+
+            color: #172b3a;
+
+            margin-bottom: 9px;
         }
 
         .intro p {
-            max-width: 440px;
+            max-width: 470px;
+
             margin: auto;
 
             font-size: 13px;
-            line-height: 1.8;
 
-            color: #a99a80;
+            line-height: 1.75;
+
+            color: #6d6b65;
         }
 
-        /* ==============================
+        /* =========================
            SOCIAL BUTTONS
-        ============================== */
+        ========================= */
 
         .socials {
             display: flex;
+
             flex-direction: column;
-            gap: 13px;
+
+            gap: 12px;
 
             position: relative;
+
             z-index: 2;
         }
 
@@ -256,184 +269,235 @@
             position: relative;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
-            min-height: 62px;
+            min-height: 64px;
 
-            border: 1px solid rgba(183,138,66,0.5);
-            border-radius: 3px;
+            border: 1px solid rgba(23, 43, 58, 0.12);
+
+            border-radius: 14px;
 
             text-decoration: none;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(62,43,27,0.75),
-                    rgba(31,22,16,0.85)
-                );
+            background: #ffffff;
 
-            color: #ead9b7;
+            color: #172b3a;
+
+            box-shadow:
+                0 6px 18px rgba(30, 43, 54, 0.06);
 
             transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                background 0.3s ease,
-                box-shadow 0.3s ease;
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .social:hover {
             transform: translateY(-3px);
 
-            border-color: #d3a653;
+            border-color: #9c7848;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(85,59,35,0.85),
-                    rgba(43,30,20,0.95)
-                );
+            background: #faf7f0;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,0.4);
+                0 12px 28px rgba(30, 43, 54, 0.11);
         }
 
         .social-icon {
             position: absolute;
+
             left: 20px;
 
-            width: 27px;
-            height: 27px;
+            width: 30px;
+            height: 30px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             font-size: 17px;
+
+            font-weight: 700;
+
+            border-radius: 9px;
+
+            background: #f0eadf;
+
+            color: #7d2932;
         }
 
         .social-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
+            font-family: 'Playfair Display', serif;
+
+            font-size: 21px;
+
             font-weight: 600;
-            letter-spacing: 2px;
+
+            letter-spacing: 1px;
         }
 
         .social-subtitle {
             position: absolute;
+
             right: 20px;
 
             font-size: 8px;
+
+            font-weight: 600;
+
             letter-spacing: 1.5px;
+
             text-transform: uppercase;
 
-            color: #8f7b5b;
+            color: #999287;
         }
 
-        /* ==============================
+        /* =========================
            CRAFTSMANSHIP
-        ============================== */
+        ========================= */
 
         .craftsmanship {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
+
+            gap: 10px;
 
             margin-top: 30px;
-
-            border: 1px solid rgba(183,138,66,0.35);
-            background: rgba(183,138,66,0.25);
         }
 
         .craft {
-            padding: 20px 10px;
+            padding: 21px 12px 18px;
+
             text-align: center;
 
-            background: rgba(19,14,10,0.95);
+            background: #f5f0e6;
+
+            border: 1px solid rgba(23, 43, 58, 0.08);
+
+            border-radius: 15px;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .craft:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(23, 43, 58, 0.08);
         }
 
         .craft-symbol {
-            font-size: 25px;
-            color: #b78a42;
+            font-size: 23px;
+
+            color: #9c7848;
+
             margin-bottom: 8px;
         }
 
         .craft h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 19px;
-            color: #dfc99d;
+            font-family: 'Playfair Display', serif;
+
+            font-size: 18px;
+
+            color: #172b3a;
         }
 
         .craft p {
             margin-top: 5px;
 
-            font-size: 9px;
+            font-size: 8px;
+
+            font-weight: 600;
+
             letter-spacing: 1px;
+
             text-transform: uppercase;
 
-            color: #80745f;
+            color: #858078;
         }
 
-        /* ==============================
+        /* =========================
            FOOTER
-        ============================== */
+        ========================= */
 
         footer {
-            margin-top: 35px;
+            margin-top: 34px;
+
             text-align: center;
         }
 
         .footer-line {
             height: 1px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                #9b7537,
-                transparent
-            );
 
-            margin-bottom: 20px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #c7b99f,
+                    transparent
+                );
+
+            margin-bottom: 18px;
         }
 
         footer p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 19px;
-            letter-spacing: 2px;
-            color: #c9ae76;
+            font-family: 'Playfair Display', serif;
+
+            font-size: 18px;
+
+            letter-spacing: 1px;
+
+            color: #7d2932;
         }
 
         footer small {
             display: block;
-            margin-top: 9px;
+
+            margin-top: 8px;
 
             font-size: 8px;
-            letter-spacing: 2px;
+
+            font-weight: 600;
+
+            letter-spacing: 1.5px;
+
             text-transform: uppercase;
 
-            color: #716550;
+            color: #8e887d;
         }
 
-        /* ==============================
+        /* =========================
            MOBILE
-        ============================== */
+        ========================= */
 
         @media (max-width: 500px) {
 
             .page {
-                padding: 10px;
+                padding: 10px 9px 25px;
             }
 
             .card {
-                padding: 35px 18px;
+                padding: 38px 16px 27px;
+
+                border-radius: 20px;
             }
 
             .brand h1 {
-                letter-spacing: 3px;
+                letter-spacing: 2px;
             }
 
             .tagline {
                 font-size: 9px;
-                letter-spacing: 2.5px;
+
+                letter-spacing: 2px;
             }
 
             .social-subtitle {
@@ -441,15 +505,21 @@
             }
 
             .social-name {
-                font-size: 21px;
+                font-size: 20px;
+            }
+
+            .social-icon {
+                left: 15px;
             }
 
             .craftsmanship {
-                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
             }
 
+            .craft {
+                padding: 18px 8px 16px;
+            }
         }
-
     </style>
 </head>
 
@@ -458,11 +528,6 @@
 <div class="page">
 
     <main class="card">
-
-        <div class="corner top-left"></div>
-        <div class="corner top-right"></div>
-        <div class="corner bottom-left"></div>
-        <div class="corner bottom-right"></div>
 
         <!-- BRAND -->
 
@@ -486,6 +551,8 @@
 
         </section>
 
+
+        <!-- DIVIDER -->
 
         <div class="divider">
             <div class="diamond"></div>
@@ -512,11 +579,14 @@
 
         <section class="socials">
 
+            <!-- INSTAGRAM -->
+
             <a
                 class="social"
                 href="https://www.instagram.com/max_tailors_cloth/"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+            >
 
                 <span class="social-icon">
                     ◎
@@ -533,11 +603,14 @@
             </a>
 
 
+            <!-- YOUTUBE -->
+
             <a
                 class="social"
                 href="https://youtube.com/@max_tailors_cloth"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+            >
 
                 <span class="social-icon">
                     ▶
@@ -554,11 +627,14 @@
             </a>
 
 
+            <!-- FACEBOOK -->
+
             <a
                 class="social"
                 href="https://www.facebook.com/share/1C38wYTezx/"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+            >
 
                 <span class="social-icon">
                     f
