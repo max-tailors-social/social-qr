@@ -10,7 +10,7 @@
         /* =========================
            FONTS & RESET
         ========================= */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;500;700&display=swap');
 
         * {
             box-sizing: border-box;
@@ -18,31 +18,50 @@
             padding: 0;
         }
 
+        /* =========================
+           AESTHETIC BACKGROUND
+        ========================= */
         body {
-            background-color: #F9F8F6; /* Luxury Ivory/Cream */
+            /* Dark aesthetic fabric texture background with overlay */
+            background-image: linear-gradient(rgba(10, 12, 16, 0.75), rgba(10, 12, 16, 0.85)), url('https://images.unsplash.com/photo-1584324275133-11b03375b47a?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            
             color: #1A1A1A;
             font-family: 'Lato', sans-serif;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 40px 15px;
+            padding: 50px 15px;
             -webkit-font-smoothing: antialiased;
         }
 
         /* =========================
-           MAIN CONTAINER
+           MAIN CONTAINER (Glassmorphism)
         ========================= */
         .container {
             width: 100%;
             max-width: 520px;
-            background: #FFFFFF;
+            background: rgba(253, 252, 251, 0.96); /* Ivory White with slight transparency */
+            backdrop-filter: blur(15px); /* Frosted Glass Effect */
+            -webkit-backdrop-filter: blur(15px);
             padding: 50px 0; 
-            border-radius: 4px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-            border: 1px solid #EAE6DF;
+            border-radius: 12px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle Gold Border */
             position: relative;
             overflow: hidden;
+        }
+
+        /* Elegant Top Accent Line */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1A1A1A, #D4AF37, #1A1A1A);
         }
 
         .content-wrap {
@@ -58,25 +77,27 @@
         }
 
         .logo-box {
-            width: 70px;
-            height: 70px;
+            width: 75px;
+            height: 75px;
             margin: 0 auto 20px;
-            border: 1px solid #1A1A1A;
+            border: 1px solid #D4AF37;
+            background-color: #1A1A1A;
+            color: #D4AF37;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 600;
-            color: #1A1A1A;
-            border-radius: 2px;
+            border-radius: 50%; /* Changed to circle for premium look */
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
         }
 
         .brand-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 34px;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
             line-height: 1.15;
             text-transform: uppercase;
             margin-bottom: 8px;
@@ -85,48 +106,54 @@
 
         .tagline {
             font-size: 11px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: #666666;
-            font-weight: 400;
+            color: #555555;
+            font-weight: 500;
         }
 
         /* =========================
-           FABRIC BRANDS MARQUEE (100% Fixed Logos)
+           FABRIC BRANDS MARQUEE (Bigger Text, No Logos)
         ========================= */
         .marquee-wrapper {
             background-color: #1A1A1A;
-            padding: 15px 0;
+            padding: 18px 0;
             margin-bottom: 35px;
             width: 100%;
             overflow: hidden;
             display: flex;
             white-space: nowrap;
             align-items: center;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
         }
 
         .marquee-track {
             display: flex;
             align-items: center;
-            animation: scroll 22s linear infinite;
+            animation: scroll 25s linear infinite;
         }
 
         .marquee-item {
             display: flex;
             align-items: center;
-            gap: 35px;
-            padding-right: 35px;
+            gap: 40px;
+            padding-right: 40px;
         }
 
-        /* Clean Wordmark Logos */
-        .brand-logo {
-            height: 22px;
-            object-fit: contain;
+        .brand-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px; /* Increased Size */
+            letter-spacing: 3px;
+            color: #D4AF37;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .dot {
-            font-size: 10px;
-            color: #555;
+            font-size: 14px;
+            color: #666;
         }
 
         @keyframes scroll {
@@ -140,7 +167,7 @@
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 15px;
             margin-bottom: 40px;
         }
 
@@ -151,10 +178,10 @@
             padding: 18px 24px;
             text-decoration: none;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            border-radius: 2px;
+            border-radius: 6px; /* Smoother edges */
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid transparent;
         }
@@ -178,11 +205,12 @@
             background-color: #1A1A1A;
             color: #D4AF37;
             border-color: #1A1A1A;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
-        .btn-primary:hover { background-color: #FFFFFF; color: #1A1A1A; }
+        .btn-primary:hover { background-color: #D4AF37; color: #1A1A1A; border-color: #D4AF37; }
 
         .btn-secondary { background-color: #FFFFFF; color: #1A1A1A; border-color: #EAE6DF; }
-        .btn-secondary:hover { border-color: #1A1A1A; background-color: #FAFAFA; }
+        .btn-secondary:hover { border-color: #1A1A1A; background-color: #FAFAFA; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
         .btn-whatsapp {
             background-color: #25D366;
@@ -203,7 +231,7 @@
             height: 1px;
             background: #EAE6DF;
             width: 100%;
-            margin: 30px 0;
+            margin: 35px 0;
             position: relative;
         }
         .divider::after {
@@ -211,22 +239,22 @@
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            background: #FFFFFF;
+            background: #FDFCFB;
             padding: 0 15px;
-            color: #B39B78;
-            font-size: 14px;
+            color: #D4AF37;
+            font-size: 16px;
         }
 
         /* =========================
-           PHOTO GALLERY
+           PHOTO GALLERY (Updated Photos)
         ========================= */
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 26px;
+            font-size: 28px;
             text-align: center;
             margin-bottom: 25px;
             color: #1A1A1A;
-            font-style: italic;
+            font-weight: 600;
         }
 
         .gallery {
@@ -238,81 +266,48 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 2px;
+            border-radius: 6px;
             cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .gallery-img {
             width: 100%;
-            height: 180px;
+            height: 190px;
             object-fit: cover;
             display: block;
             transition: transform 0.7s ease;
-            filter: brightness(0.75); 
+            filter: brightness(0.80); 
         }
 
-        .gallery-item:hover .gallery-img { transform: scale(1.08); filter: brightness(0.5); }
+        .gallery-item:hover .gallery-img { transform: scale(1.08); filter: brightness(0.6); }
 
         .gallery-text { position: absolute; bottom: 15px; left: 15px; right: 15px; color: #FFFFFF; z-index: 2; }
-        .gallery-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; letter-spacing: 1px; margin-bottom: 3px; }
-        .gallery-text p { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #D4AF37; }
-
-        /* =========================
-           VIDEO EMBED (NEW PREMIUM VIDEO)
-        ========================= */
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 300px; 
-            margin: 0 auto;
-            aspect-ratio: 9 / 16;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 1px solid #EAE6DF;
-            background-color: #1A1A1A;
-        }
-        
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Stops user from clicking/pausing easily, feels like an app background */
-        }
-
-        .video-subtitle {
-            text-align: center;
-            font-size: 10px;
-            color: #B39B78;
-            margin-top: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
+        .gallery-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; letter-spacing: 1px; margin-bottom: 3px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .gallery-text p { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #D4AF37; font-weight: 700; }
 
         /* =========================
            CONTACT & TIMINGS
         ========================= */
         .contact-card {
-            background-color: #FDFCFB;
+            background-color: #FFFFFF;
             border: 1px solid #EAE6DF;
             padding: 30px 20px;
             text-align: center;
             margin-top: 40px;
-            border-radius: 2px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
         .timings {
-            font-size: 13px;
+            font-size: 14px;
             color: #444;
             margin-bottom: 20px;
             line-height: 1.8;
         }
 
         .timings strong { color: #1A1A1A; }
-        .highlight-text { color: #B39B78; font-weight: 700; font-size: 14px;}
+        .highlight-text { color: #D4AF37; font-weight: 700; font-size: 16px;}
 
         .btn-call {
             display: flex;
@@ -327,11 +322,11 @@
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            border-radius: 2px;
-            transition: background 0.3s;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
-        .btn-call:hover { background: #B39B78; }
+        .btn-call:hover { background: #D4AF37; color: #1A1A1A; }
         .btn-call svg { width: 16px; height: 16px; fill: currentColor; }
 
         /* =========================
@@ -363,12 +358,14 @@
            MOBILE RESPONSIVENESS
         ========================= */
         @media (max-width: 480px) {
-            .container { padding: 40px 0; border: none; box-shadow: none; background: transparent; }
+            body { padding: 20px 10px; }
+            .container { padding: 40px 0; border-radius: 12px; }
             .content-wrap { padding: 0 20px; }
-            .brand-name { font-size: 28px; }
+            .brand-name { font-size: 32px; }
+            .brand-text { font-size: 20px; }
             .btn { padding: 16px 20px; }
             .gallery { grid-template-columns: 1fr; }
-            .gallery-img { height: 200px; }
+            .gallery-img { height: 220px; }
             .floating-wa span { display: none; }
             .floating-wa { padding: 15px; right: 15px; bottom: 15px; border-radius: 50%; }
         }
@@ -387,37 +384,37 @@
             </header>
         </div>
 
-        <!-- FABRIC BRANDS MARQUEE (100% Fixed Logos) -->
+        <!-- FABRIC BRANDS MARQUEE (Bigger Text, No Logos) -->
         <div class="marquee-wrapper">
             <div class="marquee-track">
                 <!-- Set 1 -->
                 <div class="marquee-item">
-                    <img src="https://placehold.co/200x50/1A1A1A/D4AF37/png?text=RAYMOND&font=playfair-display" alt="Raymond" class="brand-logo">
+                    <span class="brand-text">Raymond</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=SIYARAM'S&font=playfair-display" alt="Siyaram's" class="brand-logo">
+                    <span class="brand-text">Siyaram's</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/180x50/1A1A1A/D4AF37/png?text=ARVIND&font=playfair-display" alt="Arvind" class="brand-logo">
+                    <span class="brand-text">Arvind</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/250x50/1A1A1A/D4AF37/png?text=ITALIAN+FABRIC&font=playfair-display" alt="Italian Fabric" class="brand-logo">
+                    <span class="brand-text">Italian Fabric</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=COTTON+CLUB&font=playfair-display" alt="Cotton Club" class="brand-logo">
+                    <span class="brand-text">Cotton Club</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=LINEN+CLUB&font=playfair-display" alt="Linen Club" class="brand-logo">
+                    <span class="brand-text">Linen Club</span>
                 </div>
                 <!-- Set 2 -->
                 <div class="marquee-item">
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/200x50/1A1A1A/D4AF37/png?text=RAYMOND&font=playfair-display" alt="Raymond" class="brand-logo">
+                    <span class="brand-text">Raymond</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=SIYARAM'S&font=playfair-display" alt="Siyaram's" class="brand-logo">
+                    <span class="brand-text">Siyaram's</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/180x50/1A1A1A/D4AF37/png?text=ARVIND&font=playfair-display" alt="Arvind" class="brand-logo">
+                    <span class="brand-text">Arvind</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/250x50/1A1A1A/D4AF37/png?text=ITALIAN+FABRIC&font=playfair-display" alt="Italian Fabric" class="brand-logo">
+                    <span class="brand-text">Italian Fabric</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=COTTON+CLUB&font=playfair-display" alt="Cotton Club" class="brand-logo">
+                    <span class="brand-text">Cotton Club</span>
                     <span class="dot">◆</span>
-                    <img src="https://placehold.co/220x50/1A1A1A/D4AF37/png?text=LINEN+CLUB&font=playfair-display" alt="Linen Club" class="brand-logo">
+                    <span class="brand-text">Linen Club</span>
                 </div>
             </div>
         </div>
@@ -470,17 +467,19 @@
 
             <div class="divider"></div>
 
-            <!-- PHOTO GALLERY -->
+            <!-- NEW PHOTO GALLERY -->
             <h2 class="section-title">Men's Craftsmanship</h2>
             <section class="gallery">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600" alt="Men's Bespoke Suits" class="gallery-img">
+                    <!-- Photo 1: Men's Suit -->
+                    <img src="https://images.unsplash.com/photo-1593030103066-0093718efeb9?auto=format&fit=crop&q=80&w=600" alt="Men's Bespoke Suits" class="gallery-img">
                     <div class="gallery-text">
                         <h3>Bespoke Suits</h3>
                         <p>Perfectly Measured</p>
                     </div>
                 </div>
                 <div class="gallery-item">
+                    <!-- Photo 2: Premium Fabric -->
                     <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=600" alt="Premium Fabric Rolls" class="gallery-img">
                     <div class="gallery-text">
                         <h3>Finest Fabrics</h3>
@@ -488,31 +487,22 @@
                     </div>
                 </div>
                 <div class="gallery-item">
+                    <!-- NEW Photo 3: Premium Folded Shirts (Replaced T-shirt) -->
+                    <img src="https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?auto=format&fit=crop&q=80&w=600" alt="Premium Shirts" class="gallery-img">
+                    <div class="gallery-text">
+                        <h3>Premium Shirts</h3>
+                        <p>Crisp & Tailored</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <!-- Photo 4: Tailor Measuring -->
                     <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600" alt="Master Tailoring" class="gallery-img">
                     <div class="gallery-text">
                         <h3>Master Tailoring</h3>
                         <p>Hand-Stitched Detail</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&q=80&w=600" alt="Gentleman Accessories" class="gallery-img">
-                    <div class="gallery-text">
-                        <h3>Gentleman's Fit</h3>
-                        <p>The Flawless Style</p>
-                    </div>
-                </div>
             </section>
-
-            <div class="divider"></div>
-
-            <!-- NEW PREMIUM VIDEO SECTION -->
-            <h2 class="section-title">The Art of Tailoring</h2>
-            
-            <div class="video-wrapper">
-                <!-- Auto-playing High Quality Tailoring Video -->
-                <iframe src="https://www.youtube.com/embed/z57f0Gg3Rww?autoplay=1&mute=1&loop=1&controls=0&playlist=z57f0Gg3Rww&modestbranding=1&rel=0" title="Max Tailors Bespoke" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <p class="video-subtitle">Crafted with Perfection</p>
 
             <!-- CONTACT & TIMINGS -->
             <section class="contact-card">
@@ -530,9 +520,9 @@
             </section>
 
             <!-- FOOTER -->
-            <footer class="footer">
-                <p>Elegance in Every Thread</p>
-                <small>© Max Tailors & Cloth • Ahmedabad</small>
+            <footer class="footer" style="text-align: center; margin-top: 30px;">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: #666; margin-bottom: 5px;">Elegance in Every Thread</p>
+                <small style="font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #999;">© Max Tailors & Cloth • Ahmedabad</small>
             </footer>
         </div>
     </main>
